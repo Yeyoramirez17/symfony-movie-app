@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add Genre{% endblock %}
+
+{% block body %}
+
+	<div class="container mx-auto py-8">
+
+        <h1 class="text-2xl font-bold mb-6 text-center">Save Genre</h1>
+
+		{{ form_start(form, {
+            'attr': { 'class': 'w-full max-w-sm mx-auto bg-white p-8 rounded-md shadow-md' }
+        }) }}
+
+		<div class="mb-6">
+			{{ form_label(form.name, 'Genre Name', {
+                'label_attr': {'class': 'block mb-2 text-sm font-medium text-gray-900 dark:text-white'}
+                }) 
+            }}
+
+			{{ form_widget(form.name, {
+                    'attr' : { 
+                        'class' : 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
+                    }
+                }) 
+            }}
+		</div>
+
+		<div class="mb-6">
+			{{ form_label(form.description, null, {
+                'label' : 'Description',
+                'label_attr': {'class': 'block mb-2 text-sm font-medium text-gray-900 dark:text-white'}
+                }) 
+            }}
+
+			{{ form_widget(form.description, {
+            'attr' : { 
+                'class' : 'block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500',
+                'row': '6' }
+                }) 
+            }}
+		</div>
+
+		<div class="mb-6 flex items-center">
+			{{ form_widget(form.enable, {
+            'attr' : { 
+                'class' : 'w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600',}
+                }) 
+            }}
+
+			{{ form_label(form.enable, null, {
+                'label' : 'Enable',
+                'label_attr': {'class': 'ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'}
+                }) 
+            }}
+		</div>
+
+		<div class="mt-6 flex flex-col al">
+            <button class="w-full bg-green-500 text-white text-sm font-bold py-2 px-4 rounded-md hover:bg-green-600 transition duration-300" type="submit">
+                <i class="fas fa-save"></i> Save
+            </button>
+		
+            <a 
+                href="{{ path('app_genres') }}" 
+                class="mt-2 w-full bg-indigo-600 text-white text-center text-sm font-bold py-2 px-4 rounded-md hover:bg-indigo-700 transition duration-300" 
+            >
+                <i class="fa-solid fa-arrow-left"></i> Back
+            </a>
+        </div>
+        
+        {{ form_end(form) }}
+
+	</div>
+
+{% endblock %}
